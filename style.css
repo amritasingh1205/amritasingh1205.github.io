@@ -91,3 +91,25 @@ body.dark-mode .research-focus {
     background:#0d1b2a;
     border-color:#00bfff;
 }
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: none;       /* Hidden by default */
+  z-index: 99;         /* Stay on top */
+  border: none;
+  outline: none;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+#backToTop:hover {
+  background-color: #333;
+}
+
