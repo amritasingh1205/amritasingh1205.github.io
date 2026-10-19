@@ -7,6 +7,97 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="style.css" rel="stylesheet">
+<style>
+  /* ---------- Events: full-width animated gallery ---------- */
+  .ev-wrapper { width:100%; max-width:100%; padding-left:24px; padding-right:24px; }
+  .card-section h2 { margin-bottom: 18px; }
+
+  .ev-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap:22px;
+  }
+
+  .ev-card {
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    background: transparent;
+    border:1px solid rgba(128,128,128,0.18);
+    border-top:3px solid var(--accent);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .ev-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+    border-color: var(--accent);
+  }
+
+  .ev-img-wrap {
+    position:relative;
+    aspect-ratio: 4 / 3;
+    overflow:hidden;
+    cursor: zoom-in;
+  }
+  .ev-img-wrap img {
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition: transform .6s ease;
+  }
+  .ev-card:hover .ev-img-wrap img { transform: scale(1.07); }
+
+  .ev-img-wrap::after {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 55%);
+    opacity:0; transition: opacity .3s ease;
+  }
+  .ev-card:hover .ev-img-wrap::after { opacity:1; }
+
+  .ev-date {
+    position:absolute; top:12px; left:12px; z-index:1;
+    font-size:0.78rem; font-weight:600; letter-spacing:0.3px;
+    color:#fff; background: var(--accent);
+    padding:3px 11px; border-radius:999px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .ev-body { padding:12px 16px 14px; }
+  .ev-title {
+    display:flex; gap:10px; align-items:flex-start;
+    font-weight:600; font-size:0.98rem; line-height:1.4;
+  }
+  .ev-title i { color: var(--accent); margin-top:3px; }
+
+  /* Scroll reveal */
+  .reveal { opacity:0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  /* Lightbox */
+  .ev-lightbox {
+    position:fixed; inset:0; z-index:2000;
+    display:none; align-items:center; justify-content:center;
+    background: rgba(0,0,0,0.82); padding:24px;
+    cursor: zoom-out;
+  }
+  .ev-lightbox.open { display:flex; animation: ev-fade .25s ease; }
+  .ev-lightbox figure { margin:0; max-width:min(1000px, 100%); text-align:center; }
+  .ev-lightbox img { max-width:100%; max-height:80vh; border-radius:10px; box-shadow:0 10px 40px rgba(0,0,0,0.5); }
+  .ev-lightbox figcaption { color:#fff; margin-top:10px; font-size:0.95rem; }
+  @keyframes ev-fade { from { opacity:0; } to { opacity:1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1; transform:none; transition:none; }
+    .ev-card, .ev-img-wrap img { transition:none; }
+    .ev-card:hover { transform:none; }
+    .ev-card:hover .ev-img-wrap img { transform:none; }
+    .ev-lightbox.open { animation:none; }
+  }
+
+  @media (max-width: 767px) {
+    .ev-wrapper { padding-left:12px; padding-right:12px; }
+  }
+</style>
 </head>
 <body>
 
@@ -35,62 +126,57 @@
   </div>
 </nav>
 
-<div class="container mt-4 pt-5">
+<!-- Main Content (full width) -->
+<div class="container-fluid ev-wrapper mt-4 pt-5">
   <div class="row">
-     <!-- Left Panel -->
-    <div class="col-md-4 left-panel text-center">
-      <img src="amrita.jpg" class="avatar mb-1 shadow-sm rounded-circle border border-3 border-primary" alt="Amrita Singh" style="width:150px; height:150px;">
-      
-      <h3 class="fw-bold">Amrita Singh</h3>
-      <p class="text-secondary mb-1" style="font-size:0.9rem;">PhD Student, School of Computer Science and Engineering</p>
-      
-      <p class="mb-1">
-        <a href="https://www.unsw.edu.au/" target="_blank" class="text-decoration-none text-primary">The University of New South Wales (UNSW)</a>
-      </p>
-      <p class="mb-3 text-primary" style="font-size:0.9rem;">
-        <i class="fas fa-map-marker-alt me-1"></i> Kensington, Sydney, Australia
-      </p>
+    <div class="col-12">
+      <div class="card-section">
+        <h2>Recent Events</h2>
 
-      <div class="social-icons d-flex justify-content-center gap-3">
-        <a href="mailto:amrita.singh1@unsw.edu.au" title="Email" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=1ZhL5nUAAAAJ&hl=id" target="_blank" title="Google Scholar" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://in.linkedin.com/in/amrita-singh-23b31b15a" target="_blank" title="LinkedIn" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.unsw.edu.au/" target="_blank" title="UNSW" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-university"></i></a>
-      </div>
-    </div>
+        <div class="ev-grid">
 
-    <!-- Right Panel: Events -->
-<div class="col-md-8 right-panel">
-  <div class="card-section">
-    <h2>Recent Events</h2>
-    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-      
-      <div style="text-align: center;">
-        <img src="Event1.jpg" alt="Event 1" width="120" height="120" style="object-fit: cover; border-radius: 8px;">
-        <div>
-          2025 Google Australia Research Event<br>
-          <em>Feb 2025</em>
+          <div class="ev-card reveal" style="--accent:#4f7cff">
+            <div class="ev-img-wrap">
+              <span class="ev-date">Sep 2025</span>
+              <img src="Event3.jpg" alt="Cambridge Summer School 2025">
+            </div>
+            <div class="ev-body">
+              <div class="ev-title"><i class="fas fa-university"></i><span>Cambridge Summer School 2025</span></div>
+            </div>
+          </div>
+
+          <div class="ev-card reveal" style="--accent:#12a594">
+            <div class="ev-img-wrap">
+              <span class="ev-date">Jul 2025</span>
+              <img src="Event2.jpg" alt="ALSA Law &amp; Technology Conference">
+            </div>
+            <div class="ev-body">
+              <div class="ev-title"><i class="fas fa-balance-scale"></i><span>ALSA Law &amp; Technology Conference</span></div>
+            </div>
+          </div>
+
+          <div class="ev-card reveal" style="--accent:#e0607e">
+            <div class="ev-img-wrap">
+              <span class="ev-date">Feb 2025</span>
+              <img src="Event1.jpg" alt="2025 Google Australia Research Event">
+            </div>
+            <div class="ev-body">
+              <div class="ev-title"><i class="fab fa-google"></i><span>2025 Google Australia Research Event</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div style="text-align: center;">
-        <img src="Event2.jpg" alt="Event 2" width="120" height="120" style="object-fit: cover; border-radius: 8px;">
-        <div>
-          ALSA Law & Technology Conference<br>
-          <em>Jul 2025</em>
-        </div>
-      </div>
-
-      <div style="text-align: center;">
-        <img src="Event3.jpg" alt="Event 3" width="120" height="120" style="object-fit: cover; border-radius: 8px;">
-        <div>
-          Cambridge Summer School 2025<br>
-          <em>Sep 2025</em>
-        </div>
-      </div>
-
     </div>
   </div>
+</div>
+
+<!-- Lightbox for enlarged photos -->
+<div class="ev-lightbox" id="evLightbox" role="dialog" aria-modal="true" aria-label="Event photo">
+  <figure>
+    <img id="evLightboxImg" src="" alt="">
+    <figcaption id="evLightboxCap"></figcaption>
+  </figure>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -102,7 +188,7 @@
     document.body.classList.toggle('dark-mode');
 
     const icon = themeToggle.querySelector('i');
-    if(document.body.classList.contains('dark-mode')){
+    if (document.body.classList.contains('dark-mode')) {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
     } else {
@@ -110,6 +196,7 @@
       icon.classList.add('fa-moon');
     }
   });
+
   // Show/Hide Back to Top button
   const backToTop = document.getElementById('backToTop');
 
@@ -124,18 +211,40 @@
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Reveal event cards on scroll
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          const t = en.target;
+          t.classList.add('visible');
+          io.unobserve(t);
+          setTimeout(() => { t.style.transitionDelay = '0ms'; }, 1100);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach((e, i) => { e.style.transitionDelay = Math.min(i * 90, 450) + 'ms'; io.observe(e); });
+  })();
+
+  // Click a photo to view it larger
+  (function () {
+    const box = document.getElementById('evLightbox');
+    const img = document.getElementById('evLightboxImg');
+    const cap = document.getElementById('evLightboxCap');
+    document.querySelectorAll('.ev-img-wrap img').forEach((el) => {
+      el.addEventListener('click', () => {
+        img.src = el.src;
+        img.alt = el.alt;
+        cap.textContent = el.alt;
+        box.classList.add('open');
+      });
+    });
+    box.addEventListener('click', () => box.classList.remove('open'));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') box.classList.remove('open'); });
+  })();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
