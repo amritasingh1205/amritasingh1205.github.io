@@ -7,6 +7,66 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="style.css" rel="stylesheet">
+<style>
+  /* ---------- Full-width, compact, colourful experience layout ---------- */
+  .exp-wrapper { width:100%; max-width:100%; padding-left:24px; padding-right:24px; }
+  .card-section h2 { margin-bottom: 14px; }
+
+  .exp-section {
+    --accent: #4f7cff;
+    --tint: rgba(79, 124, 255, 0.06);
+    --soft: rgba(79, 124, 255, 0.16);
+    margin-bottom: 18px;
+    padding: 14px 18px 8px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent);
+    background: var(--tint);
+  }
+  .exp-section.academic  { --accent:#4f7cff; --tint:rgba(79,124,255,0.06);  --soft:rgba(79,124,255,0.16); }  /* blue */
+  .exp-section.industry  { --accent:#12a594; --tint:rgba(18,165,148,0.06);  --soft:rgba(18,165,148,0.16); }  /* teal */
+  .exp-section.mentoring { --accent:#e0607e; --tint:rgba(224,96,126,0.06);  --soft:rgba(224,96,126,0.16); }  /* rose */
+
+  .exp-section-title {
+    display:flex; align-items:center; gap:10px;
+    font-size:1.1rem; font-weight:600; letter-spacing:0.3px;
+    margin-bottom:6px; color: var(--accent);
+  }
+  .exp-section-title i {
+    width:30px; height:30px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:50%; font-size:0.85rem; color:#fff; background: var(--accent);
+  }
+
+  .exp-timeline {
+    list-style:none; margin:0; padding:0 0 0 16px;
+    border-left: 2px solid var(--soft);
+  }
+  .exp-item {
+    position:relative; display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:2px 16px; padding:6px 0 6px 8px;
+  }
+  .exp-item::before {
+    content:""; position:absolute; left:-22px; top:12px;
+    width:10px; height:10px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--soft);
+  }
+  .exp-main { flex:1 1 380px; min-width:0; }
+  .exp-role { font-weight:600; font-size:0.97rem; }
+  .exp-org { font-weight:300; font-size:0.92rem; }
+  .exp-org a { text-decoration:none; color: var(--accent); }
+  .exp-org a:hover { text-decoration:underline; }
+  .exp-date {
+    font-size:0.8rem; font-weight:500; white-space:nowrap;
+    padding:2px 10px; border-radius:999px;
+    color: var(--accent);
+    background: var(--soft);
+  }
+
+  @media (max-width: 767px) {
+    .exp-wrapper { padding-left:12px; padding-right:12px; }
+    .exp-item { flex-direction:column; align-items:flex-start; }
+  }
+</style>
 </head>
 <body>
 
@@ -35,67 +95,134 @@
   </div>
 </nav>
 
-<div class="container mt-4 pt-5">
+<!-- Main Content (full width) -->
+<div class="container-fluid exp-wrapper mt-4 pt-5">
   <div class="row">
+    <div class="col-12">
+      <div class="card-section">
+        <h2 class="section-header">Work Experience</h2>
 
-    <!-- Experience Section -->
-<div class="col-md-8 right-panel">
-  <div class="card-section">
-    <h2 class="section-header">Work Experience</h2>
-    
+        <!-- Academic -->
+        <div class="exp-section academic">
+          <div class="exp-section-title"><i class="fas fa-graduation-cap"></i> Academic</div>
+          <ul class="exp-timeline">
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">COMP9024 Data Structures and Algorithms Tutor</span>
+                <span class="exp-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a></span>
+              </div>
+              <span class="exp-date">Sep 2026 – Dec 2026</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">COMP6713 NLP Course Tutor</span>
+                <span class="exp-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a></span>
+              </div>
+              <span class="exp-date">Feb 2026 – May 2026</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">CSE Administrative Assistant</span>
+                <span class="exp-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a></span>
+              </div>
+              <span class="exp-date">Aug 2025 – Dec 2025</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">PhD Researcher</span>
+                <span class="exp-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a></span>
+              </div>
+              <span class="exp-date">Sep 2024 – Present</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Teaching Assistant</span>
+                <span class="exp-org"> · <a href="https://iitgn.ac.in/" target="_blank">IIT, Gandhinagar</a></span>
+              </div>
+              <span class="exp-date">Jun 2021 – Jun 2022</span>
+            </li>
+          </ul>
+        </div>
 
-    <!-- Academic Experience -->
-    <div class="experience-section">
-      <h3 class="section-title">Academic</h3>
-      <ul class="list-unstyled">
-        <li class="experience-item">
-           COMP6713 NLP Course Tutor - <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a> | <em>Feb 2026 - May 2026</em><br> 
-           CSE Administrative Assistant - <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a> | <em>Aug 2025 - Dec 2025</em><br> 
-        <li class="experience-item">
-           PhD Researcher - <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a> | <em>Sep 2024 - Present</em><br> 
-        <li class="experience-item">
-           Teaching Assistant - <a href="https://iitgn.ac.in/" target="_blank">IIT, Gandhinagar</a> | <em>Jun 2021 - Jun 2022</em><br> 
+        <!-- Industry -->
+        <div class="exp-section industry">
+          <div class="exp-section-title"><i class="fas fa-briefcase"></i> Industry</div>
+          <ul class="exp-timeline">
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Legal NLP Researcher (Data and Decision Science Lab)</span>
+                <span class="exp-org"> · <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research</a></span>
+              </div>
+              <span class="exp-date">Sep 2022 – Aug 2024</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">MG Nurture Intern</span>
+                <span class="exp-org"> · <a href="https://www.mgmotor.co.in/" target="_blank">Morris Garages</a></span>
+              </div>
+              <span class="exp-date">Jun 2020 – Jul 2020</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Research Intern</span>
+                <span class="exp-org"> · <a href="https://www.drdo.gov.in/drdo/" target="_blank">Defense Research &amp; Development Organization (DRDO)</a></span>
+              </div>
+              <span class="exp-date">Jun 2019 – Jul 2019</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Research Intern</span>
+                <span class="exp-org"> · <a href="https://www.aai.aero/" target="_blank">Airport Authority of India (AAI)</a></span>
+              </div>
+              <span class="exp-date">Jun 2018</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mentoring, Reviewing & Volunteering -->
+        <div class="exp-section mentoring">
+          <div class="exp-section-title"><i class="fas fa-hands-helping"></i> Mentoring, Reviewing &amp; Volunteering</div>
+          <ul class="exp-timeline">
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">IMNIS Mentee</span>
+                <span class="exp-org"> · <a href="https://www.atse.org.au/" target="_blank">Australian Academy of Technological Sciences &amp; Engineering</a></span>
+              </div>
+              <span class="exp-date">Feb 2026 – Jan 2027</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Taste of Research (ToR) Co-Supervisor</span>
+                <span class="exp-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a></span>
+              </div>
+              <span class="exp-date">May 2025 – Jul 2025</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Reviewer</span>
+                <span class="exp-org"> · <a href="https://2025.aclweb.org/" target="_blank">ACL 2025</a> (Mar 2025), <a href="https://alta2025.alta.asn.au/" target="_blank">ALTA 2025</a> (Sep 2025)</span>
+              </div>
+              <span class="exp-date">2025</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Secretary of Student Union</span>
+                <span class="exp-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT, Durg</a></span>
+              </div>
+              <span class="exp-date">May 2019 – Jun 2020</span>
+            </li>
+            <li class="exp-item">
+              <div class="exp-main">
+                <span class="exp-role">Event Volunteer of Annual Quizzing Fest</span>
+                <span class="exp-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT, Durg</a></span>
+              </div>
+              <span class="exp-date">May 2019</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
-    
-
-    <!-- Industry Experience -->
-    <div class="experience-section">
-      <h3 class="section-title">Industry</h3>
-      <ul class="list-unstyled">
-        <li class="experience-item">
-         Legal NLP Researcher (Data and Decision Scienece Lab) - <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research</a> | <em>Sep 2022 - Aug 2024</em><br> 
-        </li>
-        <li class="experience-item">
-        MG Nurture Intern - <a href="https://www.mgmotor.co.in/" target="_blank">Morris Garages</a> | <em>Jun 2020 - Jul 2020</em><br> 
-        </li>
-        <li class="experience-item">
-        Research Intern - <a href="https://www.drdo.gov.in/drdo/" target="_blank">Defense Research & Development Organization (DRDO)</a> | <em>Jun 2019 - Jul 2019</em><br>
-        </li>
-        <li class="experience-item">
-        Research Intern - <a href="https://www.aai.aero/" target="_blank">Airport Authority of India (AAI)</a> | <em>Jun 2018</em><br>
-          
-    
-    <!-- Mentoring/Volunteering Experience -->
-    <div class="experience-section">
-      <h3 class="section-title">Mentoring, Reviewing & Volunteering</h3>
-      <ul class="list-unstyled">
-        <li class="experience-item">
-          IMNIS Mentee - <a href="https://www.atse.org.au/" target="_blank">Australian Academy of Technological Sciences & Engineering
-</a> | <em>Feb 2026 - Jan 2027</em><br> 
-        </li>
-        <li class="experience-item">
-          Taste of Research (ToR) Co-Supervisor - <a href="https://www.unsw.edu.au/" target="_blank">UNSW, Sydney</a> | <em>May 2025 - Jul 2025</em><br> 
-        </li>
-        <li class="experience-item">
-          Reviewer - <a href="https://2025.aclweb.org/" target="_blank">ACL 2025</a>,<em>Mar 2025</em> | <a href="https://alta2025.alta.asn.au/" target="_blank">ALTA 2025</a>,<em>Sep 2025</em><br> 
-        <li class="experience-item">
-          Secretary of Student Union - <a href="https://bitdurg.ac.in/" target="_blank">BIT, Durg</a> | <em>May 2019 - Jun 2020</em><br> 
-        </li>
-        <li class="experience-item">
-          Event Volunteer of Annual Quizzing Fest - <a href="https://bitdurg.ac.in/" target="_blank">BIT, Durg</a> | <em>May 2019</em><br> </li>
-      </ul>
-    </div>
-
   </div>
 </div>
 
@@ -108,7 +235,7 @@
     document.body.classList.toggle('dark-mode');
 
     const icon = themeToggle.querySelector('i');
-    if(document.body.classList.contains('dark-mode')){
+    if (document.body.classList.contains('dark-mode')) {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
     } else {
@@ -116,6 +243,7 @@
       icon.classList.add('fa-moon');
     }
   });
+
   // Show/Hide Back to Top button
   const backToTop = document.getElementById('backToTop');
 
@@ -133,31 +261,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
