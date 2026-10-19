@@ -7,6 +7,55 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="style.css" rel="stylesheet">
+<style>
+  /* Full-width publications layout */
+  .pub-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .pub-item {
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  }
+  .pub-item:last-child {
+    border-bottom: none;
+  }
+  .pub-img {
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
+    padding: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    image-rendering: auto;
+  }
+  .pub-title a {
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .pub-title a:hover {
+    text-decoration: underline;
+  }
+  .pub-text {
+    line-height: 1.6;
+  }
+  @media (max-width: 767px) {
+    .pub-wrapper {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .pub-img {
+      margin-bottom: 12px;
+      max-height: 220px;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -33,125 +82,106 @@
   </div>
 </nav>
 
-<!-- Main Content -->
-<div class="container mt-4 pt-5">
+<!-- Main Content (full width) -->
+<div class="container-fluid pub-wrapper mt-4 pt-5">
   <div class="row">
-
-    <!-- Right Panel -->
-    <div class="col-md-8 right-panel">
+    <div class="col-12">
       <div class="card-section">
         <h2>Publications</h2>
 
-    <!-- Paper 2 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig2.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://aclanthology.org/2026.customnlp4u-1.5.pdf" target="_blank">Evaluating Customized vs. Generalist Transformer-based Models for Legal Contract Classification</strong></a><br>
-        <em><strong>Amrita Singh</strong>, H. Suhan Karaca, Aditya Joshi, Hye-young Paik, Jiaojiao Jiang</em><br>
-        <em><strong>Custom</strong></em><br>
-        <span>2026</span>
-      </div>
-    </div>
-
-<!-- Paper 2 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig1.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://arxiv.org/pdf/2507.21108" target="_blank">A Survey of Classification Tasks and Approaches for Legal Contracts</strong></a><br>
-        <em><strong>Amrita Singh</strong>, Aditya Joshi, Jiaojiao Jiang, Hye-young Paik <strong>Springer AI Review</strong></em><br>
-        <span>2025</span>
-      </div>
-    </div>
-
-    <!-- Paper 3 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig3.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://www.nature.com/articles/s41598-024-63648-x" target="_blank">A data decomposition-based hierarchical classification method for multi-label classification of contractual obligations for the purpose of their governance</strong></a><br>
-        <em><strong>Amrita Singh</strong>, Preethu Rose Anish, Aparna Verma, Sivanthy Venkatesan, Logamurugan V, Smita Ghaisas </em><br>
-        <em><strong>Nature Scientific Reports</strong></em><br>
-        <span>2024</span>
-      </div>
-    </div>
-
-    <!-- Paper 4 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig4.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://aclanthology.org/2024.emnlp-industry.44/" target="_blank">Refining App Reviews: Dataset, Methodology, and Evaluation</strong></a><br>
-        <em><strong>Amrita Singh</strong>, Chirag Jain, Mohit Chaudhary, Preethu Rose Anish</em><br>
-        <em><strong>EMNLP</strong></em><br>
-        <span>2024</span>
-      </div>
-    </div>
-
-    <!-- Paper 5 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig5.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://dl.acm.org/doi/10.1145/3675094.3678493" target="_blank">SOFTMENT: Detecting Mental Health and Wellbeing of Women in the Software Sector</strong></a><br>
-        <em><strong>Amrita Singh</strong>, Preethu Rose Anish, Smita Ghaisas</em><br>
-        <em><strong>UbiComp</strong></em><br>
-        <span>2024</span>
-      </div>
-    </div>
-
-    <!-- Paper 6 -->
-    <div class="row mb-4">
-      <!-- Left Panel: Image -->
-      <div class="col-md-4">
-        <img src="Fig6.png" class="img-fluid">
-      </div>
-      
-      <!-- Right Panel: Text -->
-      <div class="col-md-8">
-        <strong><a href="https://ieeexplore.ieee.org/document/10260954" target="_blank">A Transformer-based Approach for Abstractive Summarization of Requirements from Obligations in Software Engineering Contracts</strong></a><br>
-        <em>Chirag Jain, Preethu Rose Anish, <strong>Amrita Singh</strong>, Smita Ghaisas</em><br>
-        <em><strong> IEEE 31st International Requirements Engineering Conference (RE)</strong></em><br>
-        <span>2023</span>
-      </div>
-    </div>
-
-    <!-- Paper 7 -->
-        <div class="row mb-4">
-          <!-- Left Panel: Embed PDF -->
+        <!-- Paper 1 -->
+        <div class="row pub-item">
           <div class="col-md-4">
-            <img src="Fig7.png" class="img-fluid">
+            <img src="Fig2.png" class="pub-img" alt="Customized vs. generalist models for legal contract classification">
           </div>
-  
-  <!-- Right Panel: Text -->
-  <div class="col-md-8">
-    <strong><a href="https://arxiv.org/pdf/2310.07727" target="_blank">
-      Deep Learning based Systems for Crater Detection: A Review
-    </a></strong><br>
-    <em>Atal Tewari, K Prateek, <strong>Amrita Singh</strong>, Nitin Khanna</em><br>
-    <em><strong>arXiv</strong></em><br>
-    <span>2023</span>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://aclanthology.org/2026.customnlp4u-1.5.pdf" target="_blank">Evaluating Customized vs. Generalist Transformer-based Models for Legal Contract Classification</a></div>
+            <em><strong>Amrita Singh</strong>, H. Suhan Karaca, Aditya Joshi, Hye-young Paik, Jiaojiao Jiang</em><br>
+            <em><strong>CustomNLP4U @ACL 2026</strong></em><br>
+            <span>2026</span>
+          </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig1.png" class="pub-img" alt="Survey of classification tasks for legal contracts">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://arxiv.org/pdf/2507.21108" target="_blank">A Survey of Classification Tasks and Approaches for Legal Contracts</a></div>
+            <em><strong>Amrita Singh</strong>, Aditya Joshi, Jiaojiao Jiang, Hye-young Paik</em><br>
+            <em><strong>Springer AI Review</strong></em><br>
+            <span>2025</span>
+          </div>
+        </div>
+
+        <!-- Paper 3 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig3.png" class="pub-img" alt="Hierarchical classification of contractual obligations">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://www.nature.com/articles/s41598-024-63648-x" target="_blank">A data decomposition-based hierarchical classification method for multi-label classification of contractual obligations for the purpose of their governance</a></div>
+            <em><strong>Amrita Singh</strong>, Preethu Rose Anish, Aparna Verma, Sivanthy Venkatesan, Logamurugan V, Smita Ghaisas</em><br>
+            <em><strong>Nature Scientific Reports</strong></em><br>
+            <span>2024</span>
+          </div>
+        </div>
+
+        <!-- Paper 4 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig4.png" class="pub-img" alt="Refining app reviews">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://aclanthology.org/2024.emnlp-industry.44/" target="_blank">Refining App Reviews: Dataset, Methodology, and Evaluation</a></div>
+            <em><strong>Amrita Singh</strong>, Chirag Jain, Mohit Chaudhary, Preethu Rose Anish</em><br>
+            <em><strong>EMNLP</strong></em><br>
+            <span>2024</span>
+          </div>
+        </div>
+
+        <!-- Paper 5 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig5.png" class="pub-img" alt="SOFTMENT">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3675094.3678493" target="_blank">SOFTMENT: Detecting Mental Health and Wellbeing of Women in the Software Sector</a></div>
+            <em><strong>Amrita Singh</strong>, Preethu Rose Anish, Smita Ghaisas</em><br>
+            <em><strong>UbiComp</strong></em><br>
+            <span>2024</span>
+          </div>
+        </div>
+
+        <!-- Paper 6 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig6.png" class="pub-img" alt="Abstractive summarization of requirements">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://ieeexplore.ieee.org/document/10260954" target="_blank">A Transformer-based Approach for Abstractive Summarization of Requirements from Obligations in Software Engineering Contracts</a></div>
+            <em>Chirag Jain, Preethu Rose Anish, <strong>Amrita Singh</strong>, Smita Ghaisas</em><br>
+            <em><strong>IEEE 31st International Requirements Engineering Conference (RE)</strong></em><br>
+            <span>2023</span>
+          </div>
+        </div>
+
+        <!-- Paper 7 -->
+        <div class="row pub-item">
+          <div class="col-md-4">
+            <img src="Fig7.png" class="pub-img" alt="Crater detection review">
+          </div>
+          <div class="col-md-8 pub-text">
+            <div class="pub-title"><a href="https://arxiv.org/pdf/2310.07727" target="_blank">Deep Learning based Systems for Crater Detection: A Review</a></div>
+            <em>Atal Tewari, K Prateek, <strong>Amrita Singh</strong>, Nitin Khanna</em><br>
+            <em><strong>arXiv</strong></em><br>
+            <span>2023</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -165,7 +195,7 @@
   themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 
-    if(document.body.classList.contains('dark-mode')){
+    if (document.body.classList.contains('dark-mode')) {
       themeIcon.classList.remove('fa-moon');
       themeIcon.classList.add('fa-sun');
     } else {
@@ -173,7 +203,8 @@
       themeIcon.classList.add('fa-moon');
     }
   });
-// Show/Hide Back to Top button
+
+  // Show/Hide Back to Top button
   const backToTop = document.getElementById('backToTop');
 
   window.onscroll = function() {
@@ -190,37 +221,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
