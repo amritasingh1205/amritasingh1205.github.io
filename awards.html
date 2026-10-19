@@ -7,6 +7,89 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="style.css" rel="stylesheet">
+<style>
+  /* ---------- Awards: animated timeline ---------- */
+  .aw-wrapper { width:100%; max-width:100%; padding-left:24px; padding-right:24px; }
+  .card-section h2 { margin-bottom: 18px; }
+
+  .aw-timeline { position:relative; padding-left:34px; }
+  .aw-timeline::before {
+    content:""; position:absolute; left:15px; top:6px; bottom:6px; width:2px;
+    background: linear-gradient(to bottom, #4f7cff, #12a594, #e0607e, #f29d38, #8b5cf6);
+    border-radius:2px; opacity:0.35;
+  }
+
+  .aw-year {
+    position:relative; display:inline-block;
+    font-weight:700; font-size:0.85rem; letter-spacing:1px;
+    color:#fff; background: linear-gradient(90deg, #4f7cff, #8b5cf6);
+    padding:3px 12px; border-radius:999px; margin:14px 0 8px -34px;
+  }
+
+  .aw-card {
+    position:relative; display:flex; gap:14px; align-items:flex-start;
+    padding:12px 16px; margin-bottom:10px;
+    background: transparent;
+    border:1px solid rgba(128,128,128,0.18);
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .aw-card::before {
+    content:""; position:absolute; left:-25px; top:22px;
+    width:10px; height:10px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  .aw-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+  .aw-card:hover::before { animation: aw-pulse 1.2s ease-out infinite; }
+
+  .aw-icon {
+    flex:0 0 38px; width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; background: var(--accent); font-size:0.95rem;
+    transition: transform .3s ease;
+  }
+  .aw-card:hover .aw-icon { transform: rotate(-8deg) scale(1.08); }
+
+  .aw-body { flex:1; min-width:0; }
+  .aw-head { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:2px 16px; }
+  .aw-title { font-weight:600; font-size:0.98rem; }
+  .aw-org { font-weight:300; font-size:0.92rem; }
+  .aw-org a { text-decoration:none; color: var(--accent); }
+  .aw-org a:hover { text-decoration:underline; }
+  .aw-date {
+    font-size:0.8rem; font-weight:500; white-space:nowrap;
+    padding:2px 10px; border-radius:999px;
+    color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent);
+  }
+  .aw-desc { font-size:0.88rem; line-height:1.5; opacity:0.8; margin-top:3px; }
+
+  /* Scroll reveal */
+  .reveal { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  @keyframes aw-pulse {
+    0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); }
+    100% { box-shadow: 0 0 0 10px transparent; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1; transform:none; transition:none; }
+    .aw-card, .aw-icon { transition:none; }
+    .aw-card:hover { transform:none; }
+    .aw-card:hover::before { animation:none; }
+  }
+
+  @media (max-width: 767px) {
+    .aw-wrapper { padding-left:12px; padding-right:12px; }
+    .aw-head { flex-direction:column; align-items:flex-start; }
+  }
+</style>
 </head>
 <body>
 
@@ -35,48 +118,152 @@
   </div>
 </nav>
 
-<div class="container mt-4 pt-5">
+<div class="container-fluid aw-wrapper mt-4 pt-5">
   <div class="row">
-     <!-- Left Panel -->
-    <div class="col-md-4 left-panel text-center">
-      <img src="amrita.jpg" class="avatar mb-1 shadow-sm rounded-circle border border-3 border-primary" alt="Amrita Singh" style="width:150px; height:150px;">
-      
-      <h3 class="fw-bold">Amrita Singh</h3>
-      <p class="text-secondary mb-1" style="font-size:0.9rem;">PhD Student, School of Computer Science and Engineering</p>
-      
-      <p class="mb-1">
-        <a href="https://www.unsw.edu.au/" target="_blank" class="text-decoration-none text-primary">The University of New South Wales (UNSW)</a>
-      </p>
-      <p class="mb-3 text-primary" style="font-size:0.9rem;">
-        <i class="fas fa-map-marker-alt me-1"></i> Kensington, Sydney, Australia
-      </p>
-
-      <div class="social-icons d-flex justify-content-center gap-3">
-        <a href="mailto:amrita.singh1@unsw.edu.au" title="Email" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-envelope"></i></a>
-        <a href="https://scholar.google.com/citations?user=1ZhL5nUAAAAJ&hl=id" target="_blank" title="Google Scholar" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://in.linkedin.com/in/amrita-singh-23b31b15a" target="_blank" title="LinkedIn" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.unsw.edu.au/" target="_blank" title="UNSW" class="btn btn-outline-primary btn-sm rounded-circle p-2"><i class="fas fa-university"></i></a>
-      </div>
-    </div>
-
-    <!-- Right Panel: Awards -->
-    <div class="col-md-8 right-panel">
+    <!-- Awards (full width) -->
+    <div class="col-12">
       <div class="card-section">
-        <h2>Honors & Awards</h2>
-        <ul>
-          <li><strong>Thinking Machines Research Grant</strong>, <a href="https://thinkingmachines.ai/blog/tinker-research-and-teaching-grants/" target="_blank"> Thinking Machines,(Nov 2025)</a> – Awarded the Thinking Machines Research Grant, receiving $5000 USD to support research projects and open-source software that uses Tinker.</li> 
-          <li><strong>Google Cloud Research Grant</strong>, <a href="https://edu.google.com/programs/credits/research/?modal_active=none" target="_blank"> Google Cloud,(Nov 2025)</a> – Awarded the Google Cloud Research Grant, receiving $1500 USD in Google Cloud research credits.</li> 
-          <li><strong>AstraZeneca-CCAIM Summer School</strong>, <a href="https://www.vanderschaar-lab.com/ccaim-ai-and-machine-learning-summer-school/" target="_blank">Cambridge, UK (Aug 2025)</a> – Awarded an AstraZeneca-funded place to attend the Cambridge AI & ML Summer School.</li>
-          <li><strong>TFS Scholarship</strong>, <a href="https://www.unsw.edu.au/" target="_blank">UNSW Sydney (Sep 2024 – Mar 2028)</a> – Prestigious scholarship awarded to pursue Ph.D. studies at UNSW Sydney.</li>
-          <li><strong>TCS Citation Award</strong>, <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research (Nov 2023)</a> – Recognized among the most cited young researchers for impactful publication.</li>
-          <li><strong>Special Initiative Award</strong>, <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research (Feb 2023)</a> – Honored for outstanding contributions to research and innovation.</li>
-          <li><strong>IBITF Fellowship</strong>, <a href="https://www.iitbhilai.ac.in/" target="_blank">IIT Bhilai (Oct 2021)</a> – Selected for a 6-month funded fellowship in the FinTech sector (declined due to health reasons).</li>
-          <li><strong>Early Admit M.Tech Scholarship</strong>, <a href="https://iitgn.ac.in/" target="_blank">IIT Gandhinagar (Aug 2020 – Jun 2022)</a> – Awarded scholarship to pursue Master’s studies at IIT Gandhinagar.</li>
-          <li><strong>Alumni Award</strong>, <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg (May 2020)</a> – Granted for exceptional academic and extracurricular achievements.</li>
-          <li><strong>Naveen Nair Gold Medal</strong>, <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg (May 2020)</a> – Awarded for top performance in Electronics & Telecommunication undergraduate program (2016–2020).</li>
-          <li><strong>Excel Gold Medal</strong>, <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg (May 2020)</a> – Recognized for securing the top rank in final-year examinations.</li>
-          <li><strong>Annual Scholarship Award</strong>, <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg (May 2019)</a> – Awarded for securing the highest marks across all departments in the third year of undergraduate studies.</li>
-        </ul>
+        <h2>Honors &amp; Awards</h2>
+
+        <div class="aw-timeline">
+          <div class="aw-year reveal">2026</div>
+          <div class="aw-card reveal" style="--accent:#4f7cff">
+            <div class="aw-icon"><i class="fas fa-globe-europe"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">DAAD AInet Fellow</span><span class="aw-org"> · <a href="https://www.daad.de/en/the-daad/postdocnet/fellows/fellows/" target="_blank">DAAD</a></span></div>
+                <span class="aw-date">Oct 2026</span>
+              </div>
+              <div class="aw-desc">Selected as a 2026 DAAD AInet Fellow, awarded by the German Academic Exchange Service (DAAD) to outstanding international early-career researchers in Artificial Intelligence.</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2025</div>
+          <div class="aw-card reveal" style="--accent:#12a594">
+            <div class="aw-icon"><i class="fas fa-flask"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Thinking Machines Research Grant</span><span class="aw-org"> · <a href="https://thinkingmachines.ai/blog/tinker-research-and-teaching-grants/" target="_blank">Thinking Machines</a></span></div>
+                <span class="aw-date">Nov 2025</span>
+              </div>
+              <div class="aw-desc">Awarded the Thinking Machines Research Grant, receiving $5000 USD to support research projects and open-source software that uses Tinker.</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#e0607e">
+            <div class="aw-icon"><i class="fas fa-cloud"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Google Cloud Research Grant</span><span class="aw-org"> · <a href="https://edu.google.com/programs/credits/research/?modal_active=none" target="_blank">Google Cloud</a></span></div>
+                <span class="aw-date">Nov 2025</span>
+              </div>
+              <div class="aw-desc">Awarded the Google Cloud Research Grant, receiving $1500 USD in Google Cloud research credits.</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#f29d38">
+            <div class="aw-icon"><i class="fas fa-sun"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">AstraZeneca-CCAIM Summer School</span><span class="aw-org"> · <a href="https://www.vanderschaar-lab.com/ccaim-ai-and-machine-learning-summer-school/" target="_blank">Cambridge, UK</a></span></div>
+                <span class="aw-date">Aug 2025</span>
+              </div>
+              <div class="aw-desc">Awarded an AstraZeneca-funded place to attend the Cambridge AI &amp; ML Summer School.</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2024</div>
+          <div class="aw-card reveal" style="--accent:#8b5cf6">
+            <div class="aw-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">TFS Scholarship</span><span class="aw-org"> · <a href="https://www.unsw.edu.au/" target="_blank">UNSW Sydney</a></span></div>
+                <span class="aw-date">Sep 2024 - Mar 2028</span>
+              </div>
+              <div class="aw-desc">Prestigious scholarship awarded to pursue Ph.D. studies at UNSW Sydney.</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2023</div>
+          <div class="aw-card reveal" style="--accent:#4f7cff">
+            <div class="aw-icon"><i class="fas fa-quote-right"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">TCS Citation Award</span><span class="aw-org"> · <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research</a></span></div>
+                <span class="aw-date">Nov 2023</span>
+              </div>
+              <div class="aw-desc">Recognized among the most cited young researchers for impactful publication.</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#12a594">
+            <div class="aw-icon"><i class="fas fa-lightbulb"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Special Initiative Award</span><span class="aw-org"> · <a href="https://www.tcs.com/careers/india/research-and-innovation" target="_blank">TCS Research</a></span></div>
+                <span class="aw-date">Feb 2023</span>
+              </div>
+              <div class="aw-desc">Honored for outstanding contributions to research and innovation.</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2021</div>
+          <div class="aw-card reveal" style="--accent:#e0607e">
+            <div class="aw-icon"><i class="fas fa-coins"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">IBITF Fellowship</span><span class="aw-org"> · <a href="https://www.iitbhilai.ac.in/" target="_blank">IIT Bhilai</a></span></div>
+                <span class="aw-date">Oct 2021</span>
+              </div>
+              <div class="aw-desc">Selected for a 6-month funded fellowship in the FinTech sector (declined due to health reasons).</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2020</div>
+          <div class="aw-card reveal" style="--accent:#f29d38">
+            <div class="aw-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Early Admit M.Tech Scholarship</span><span class="aw-org"> · <a href="https://iitgn.ac.in/" target="_blank">IIT Gandhinagar</a></span></div>
+                <span class="aw-date">Aug 2020 - Jun 2022</span>
+              </div>
+              <div class="aw-desc">Awarded scholarship to pursue Master’s studies at IIT Gandhinagar.</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#8b5cf6">
+            <div class="aw-icon"><i class="fas fa-star"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Alumni Award</span><span class="aw-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg</a></span></div>
+                <span class="aw-date">May 2020</span>
+              </div>
+              <div class="aw-desc">Granted for exceptional academic and extracurricular achievements.</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#4f7cff">
+            <div class="aw-icon"><i class="fas fa-medal"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Naveen Nair Gold Medal</span><span class="aw-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg</a></span></div>
+                <span class="aw-date">May 2020</span>
+              </div>
+              <div class="aw-desc">Awarded for top performance in Electronics &amp; Telecommunication undergraduate program (2016–2020).</div>
+            </div>
+          </div>
+          <div class="aw-card reveal" style="--accent:#12a594">
+            <div class="aw-icon"><i class="fas fa-medal"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Excel Gold Medal</span><span class="aw-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg</a></span></div>
+                <span class="aw-date">May 2020</span>
+              </div>
+              <div class="aw-desc">Recognized for securing the top rank in final-year examinations.</div>
+            </div>
+          </div>
+          <div class="aw-year reveal">2019</div>
+          <div class="aw-card reveal" style="--accent:#e0607e">
+            <div class="aw-icon"><i class="fas fa-book-open"></i></div>
+            <div class="aw-body">
+              <div class="aw-head">
+                <div><span class="aw-title">Annual Scholarship Award</span><span class="aw-org"> · <a href="https://bitdurg.ac.in/" target="_blank">BIT Durg</a></span></div>
+                <span class="aw-date">May 2019</span>
+              </div>
+              <div class="aw-desc">Awarded for securing the highest marks across all departments in the third year of undergraduate studies.</div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -92,7 +279,7 @@
     document.body.classList.toggle('dark-mode');
 
     const icon = themeToggle.querySelector('i');
-    if(document.body.classList.contains('dark-mode')){
+    if (document.body.classList.contains('dark-mode')) {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
     } else {
@@ -100,6 +287,7 @@
       icon.classList.add('fa-moon');
     }
   });
+
   // Show/Hide Back to Top button
   const backToTop = document.getElementById('backToTop');
 
@@ -114,21 +302,22 @@
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+  // Reveal awards on scroll
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          const t = en.target;
+          t.classList.add('visible');
+          io.unobserve(t);
+          setTimeout(() => { t.style.transitionDelay = '0ms'; }, 1100);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach((e, i) => { e.style.transitionDelay = Math.min(i * 60, 400) + 'ms'; io.observe(e); });
+  })();
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
